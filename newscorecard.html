@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golf Scorecard</title>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9, #a5d6a7); /* soft golf green gradient */
+  padding: 150px;
+}
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 150px;
+
+    }
+
+    .scorecard {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .scorecard-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .scorecard-table th,
+    .scorecard-table td {
+      padding: 10px 8px;
+      text-align: center;
+      border: 1px solid #2d2d2d; /* dark border */
+    }
+
+    /* HOLE header */
+    .scorecard-table th {
+      background-color: #2e7d32; /* Golf green */
+      color: white;
+      font-weight: 700;
+    }
+
+    /* Row labels */
+    .row-label {
+      font-weight: 600;
+      text-align: left;
+      padding-left: 12px;
+      min-width: 80px;
+    }
+
+    /* Black Tee Row */
+    tr.black-tee td {
+      background-color: #000 !important;
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    /* PAR Row */
+    tr.par-row td {
+      background-color: #fff !important;
+      color: #000 !important;
+      font-weight: bold;
+    }
+
+    /* HCP Row */
+    tr.hcp-row td {
+      background-color: #fff !important;
+      color: #000 !important;
+      font-weight: 600;
+    }
+
+    /* Gross Row */
+    tr.gross-row td {
+      background-color: #fff !important;
+      font-weight: bold;
+    }
+
+    /* Gross Score Colors */
+    tr.gross-row td.eagle { background-color: #1E90FF !important; color: #fff !important; }
+    tr.gross-row td.birdie { background-color: #28A745 !important; color: #fff !important; }
+    tr.gross-row td.par { background-color: #E0E0E0 !important; color: #000 !important; }
+    tr.gross-row td.bogey { background-color: #FF9800 !important; color: #fff !important; }
+    tr.gross-row td.double-bogey { background-color: #F44336 !important; color: #fff !important; }
+
+    /* Minus Handicap Row */
+    tr.handicap-row td {
+      background-color: #fafafa !important;
+      color: #000 !important;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* Net Row */
+    tr.net-row td {
+      background-color: #fff !important;
+      color: #000 !important;
+      font-weight: bold;
+    }
+
+    /* Match Row */
+    tr.match-row td {
+      background-color: #fff !important;
+      font-weight: 600;
+    }
+    .match-play.up { background-color: #4caf50 !important; color: #fff !important; }
+    .match-play.down { background-color: #f44336 !important; color: #fff !important; }
+    .match-play.as { background-color: #9e9e9e !important; color: #fff !important; }
+
+    /* Total Column Style (per row) */
+    td.total-column {
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    tr.black-tee td.total-column {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    tr.par-row td.total-column,
+    tr.hcp-row td.total-column,
+    tr.gross-row td.total-column,
+    tr.net-row td.total-column,
+    tr.match-row td.total-column {
+      background-color: #fff !important;
+      color: #000 !important;
+    }
+
+    tr.handicap-row td.total-column {
+      background-color: #fafafa !important;
+      color: #000 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="scorecard">
+    <div class="header">
+      <div>Michael Joshua B. Paloa</div>
+      <div>Aug 22, 2025 | Tees: Black | HCP: 12</div>
+    </div>
+    <table class="scorecard-table">
+      <tr>
+        <th class="row-label">HOLE</th>
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+        <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+        <th>16</th><th>17</th><th>18</th>
+        <th class="total-column">TOTAL</th>
+      </tr>
+      <tr class="black-tee">
+        <td class="row-label">BLACK TEE</td>
+        <td>485</td><td>547</td><td>425</td><td>368</td><td>205</td>
+        <td>558</td><td>142</td><td>467</td><td>502</td><td>535</td>
+        <td>228</td><td>445</td><td>167</td><td>432</td><td>441</td>
+        <td>612</td><td>234</td><td>585</td>
+        <td class="total-column">7378</td>
+      </tr>
+      <tr class="par-row">
+        <td class="row-label">PAR</td>
+        <td>4</td><td>5</td><td>4</td><td>4</td><td>3</td>
+        <td>5</td><td>3</td><td>4</td><td>4</td><td>5</td>
+        <td>3</td><td>4</td><td>3</td><td>4</td><td>4</td>
+        <td>5</td><td>3</td><td>5</td>
+        <td class="total-column">73</td>
+      </tr>
+      <tr class="hcp-row">
+        <td class="row-label">HCP</td>
+        <td>8</td><td>4</td><td>12</td><td>14</td><td>18</td>
+        <td>2</td><td>16</td><td>6</td><td>10</td><td>1</td>
+        <td>15</td><td>5</td><td>17</td><td>7</td><td>9</td>
+        <td>3</td><td>13</td><td>11</td>
+        <td class="total-column">—</td>
+      </tr>
+      <tr class="gross-row">
+        <td class="row-label">GROSS</td>
+        <td class="bogey">5</td><td class="bogey">6</td><td class="par">4</td><td class="bogey">5</td><td class="par">4</td>
+        <td class="bogey">6</td><td class="birdie">3</td><td class="bogey">5</td><td class="bogey">6</td><td class="bogey">6</td>
+        <td class="par">4</td><td class="bogey">5</td><td class="par">3</td><td class="bogey">5</td><td class="bogey">4</td>
+        <td class="bogey">6</td><td class="bogey">4</td><td class="double-bogey">7</td>
+        <td class="total-column">88</td>
+      </tr>
+      <tr class="handicap-row">
+        <td class="row-label">– HCP</td>
+        <td>-1</td><td>-1</td><td>-1</td><td>0</td><td>0</td>
+        <td>-1</td><td>0</td><td>-1</td><td>-1</td><td>-1</td>
+        <td>0</td><td>-1</td><td>0</td><td>-1</td><td>-1</td>
+        <td>0</td><td>0</td><td>-1</td>
+        <td class="total-column">-12</td>
+      </tr>
+      <tr class="net-row">
+        <td class="row-label">NET</td>
+        <td>4</td><td>5</td><td>3</td><td>5</td><td>4</td>
+        <td>5</td><td>3</td><td>4</td><td>5</td><td>5</td>
+        <td>4</td><td>4</td><td>3</td><td>4</td><td>3</td>
+        <td>6</td><td>4</td><td>6</td>
+        <td class="total-column">76</td>
+      </tr>
+      <tr class="match-row">
+        <td class="row-label">MATCH</td>
+        <td class="match-play down">1DN</td><td class="match-play down">2DN</td><td class="match-play down">1DN</td><td class="match-play down">2DN</td><td class="match-play down">1DN</td>
+        <td class="match-play down">2DN</td><td class="match-play up">1UP</td><td class="match-play as">AS</td><td class="match-play down">1DN</td><td class="match-play down">2DN</td>
+        <td class="match-play down">1DN</td><td class="match-play down">2DN</td><td class="match-play up">1UP</td><td class="match-play as">AS</td><td class="match-play up">1UP</td>
+        <td class="match-play as">AS</td><td class="match-play up">1UP</td><td class="match-play down">1DN</td>
+        <td class="total-column">—</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
